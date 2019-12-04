@@ -38,23 +38,14 @@ body {
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
-.hero:not(:hover){
-  animation-name: toGap;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-}
+
 @keyframes toCenter {
 
   100%{
     grid-gap: calc(0vw/3);
   }
 }
-@keyframes toGap {
-  100%{
-    grid-gap: calc(90vw/3);
 
-  }
-}
 .hero .h1-hero:nth-child(1) {
   justify-self: flex-end;
   color: yellow;
