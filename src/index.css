@@ -35,8 +35,9 @@ body {
 
 .hero:hover{
   animation-name: toCenter;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
 }
 
 @keyframes toCenter {
@@ -71,4 +72,21 @@ body {
   margin: 0;
   top: 0;
   position: absolute;
+}
+
+
+.content {
+  display: grid;
+  grid-template: 400px / 1fr 1fr;
+  grid-auto-rows: 400px;
+
+}
+.card {
+  display: flex;
+  background: white;
+  box-shadow: 1px 1px rgba(0,0,0,0.8);
+  justify-self: center;
+  width: 90%;
+  align-self: center;
+  height: 250px;
 }
