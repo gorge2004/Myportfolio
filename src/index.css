@@ -5,50 +5,79 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-margin: 0;
-
   background: blue;
 
 }
 
 .hero {
-  border: 2px solid black;
-  height: 350px;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 350px;
   align-items: center;
-  justify-content: center;
+  grid-gap: calc(90vw/3);
+  background-image: url('./assets/images/hero-1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    }
 
-.hero h1{
+}
+
+
+.hero .h1-hero{
   font-size: 100px;
   overflow: hidden;
-max-width: 95px;
-position: relative;
+  position: relative;
+  width: fit-content;
+  margin: 0;
 
 }
-.hero h1:nth-child(2) {
-    padding: 0;
-    color: red;
-    width: 58px;
-    min-height: 115px;
+
+.hero:hover{
+  animation-name: toCenter;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
-.hero h1:nth-child(3) {
-  padding: 0;
+.hero:not(:hover){
+  animation-name: toGap;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes toCenter {
+
+  100%{
+    grid-gap: calc(0vw/3);
+  }
+}
+@keyframes toGap {
+  100%{
+    grid-gap: calc(90vw/3);
+
+  }
+}
+.hero .h1-hero:nth-child(1) {
+  justify-self: flex-end;
   color: yellow;
-  min-width: 100px;
-  min-height: 115px;
+
+}
+.hero .h1-hero:nth-child(2) {
+    padding: 0;
+    color: blue;
+    min-height: 1em;
+}
+.hero .h1-hero:nth-child(3) {
+  padding: 0;
+  color: red;
+  min-height: 1em;
 
 }
 .aux-cut-letter-mid {
   margin: 0;
   top: 0;
   position: absolute;
-  left: -100px;
 }
 .aux-cut-letter-end {
   margin: 0;
   top: 0;
   position: absolute;
-  left: -160px;
 }
