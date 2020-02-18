@@ -90,6 +90,7 @@ body {
     justify-content: center;
     padding: 10px 20px;
     color: #fff;
+    border-radius: 10px;
 }
 .card-title h2 {
   margin: 10px 0 0;
