@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactDOM from 'react-dom';
 import { connect } from "react-redux";
 import htmlToImage from "html-to-image";
 
@@ -8,31 +8,28 @@ class Content extends React.Component {
     super(props);
   }
   componentDidMount() {
-    
     // this.getImage(node);
   }
-  getImage = async(node) => {
-   let img = new Image()
-  await  htmlToImage
+  getImage = async node => {
+    let img = new Image();
+    await htmlToImage
       .toPng(node)
       .then(function(dataUrl) {
-       console.log(dataUrl);
-       
+      
+
         img.src = dataUrl;
         //node.appendChild(img);
-        ;
-       
       })
       .catch(function(error) {
         console.error("oops, something went wrong!", error);
       });
-      console.log(img);
-      
-      this.divideToCanvas(node, img);
-     
-      node.querySelector('.card').style.animation  = 'card-disappear 1s forwards';
-      node.querySelector('.card').style.display  = 'none';
-      this.startTheDecimation(node);
+  
+
+    this.divideToCanvas(node, img);
+
+    node.querySelector(".card").style.animation = "card-disappear 1s forwards";
+    node.querySelector(".card").style.display = "none";
+    this.startTheDecimation(node);
   };
   getPixels = (context, cnvas) => {
     const width = cnvas.width;
@@ -61,6 +58,7 @@ class Content extends React.Component {
     for (let i = 0; i < row; i++) {
       for (let j = 0; j < column; j++) {
         const newCanvas = document.createElement("canvas");
+        newCanvas.setAttribute('key', `${i}${j}`);
         newCanvas.width = widthCanvas;
         newCanvas.height = heightCanvas;
         const newCtx = newCanvas.getContext("2d");
@@ -96,8 +94,12 @@ class Content extends React.Component {
 
     for (let index = 0; index < 10; index++) {
       cards.push(
-        <div className="container-card" key={`${index}`} onClick={this.handleClick}>
-          <div className="card" >
+        <div
+          className="container-card"
+          key={`${index}`}
+          onClick={this.handleClick}
+        >
+          <div className="card">
             <section className="card-title">
               <h2>title of jobs</h2>
               <h5>ubication</h5>
@@ -118,9 +120,22 @@ class Content extends React.Component {
     return cards;
   };
   handleClick = evt => {
-    this.getImage(evt.currentTarget);
-   // evt.currentTarget.querySelector('.card').style.animation  = 'card-disappear 1s forwards';
-    //evt.currentTarget.querySelector('.card').style.display  = 'none'; 
+    if (evt.currentTarget.querySelector(".card").style.display === "none") {
+      const canvas = evt.currentTarget.getElementsByTagName("canvas");
+
+      for (const canvasSingle of canvas) {
+        console.log(canvasSingle);
+        evt.currentTarget.removeChild(canvasSingle);
+        ReactDOM.unmountComponentAtNode(canvasSingle);
+      }
+      evt.currentTarget.querySelector(".card").style.display = "flex";
+      evt.currentTarget.querySelector(".card").style.animation =
+        "card-appear 1s forwards";
+    } else {
+      this.getImage(evt.currentTarget);
+    }
+    // evt.currentTarget.querySelector('.card').style.animation  = 'card-disappear 1s forwards';
+    //evt.currentTarget.querySelector('.card').style.display  = 'none';
   };
 
   render() {

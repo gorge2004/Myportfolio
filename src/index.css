@@ -111,14 +111,14 @@ body {
 @keyframes card-appear {
   from {
     display: block;
-    color: blueviolet;
+    color: violet;
     opacity: 0.5;
   }
   50% {
     color: green;
   }
   to {
-    color: black;
+    color: white;
     opacity: 1;
   }
 }
