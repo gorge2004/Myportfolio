@@ -112,10 +112,10 @@ body {
 @keyframes card-appear {
   from {
     display: block;
-    color: violet;
-    opacity: 0.5;
+    color: #609;
+    opacity: 0.3;
   }
-  50% {
+  75% {
     color: green;
   }
   to {

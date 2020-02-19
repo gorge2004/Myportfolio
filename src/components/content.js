@@ -1,29 +1,32 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+
 import { connect } from "react-redux";
 import htmlToImage from "html-to-image";
 
 class Content extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { auxChange: false, cards: { render: [], originals: [] } };
   }
   componentDidMount() {
     // this.getImage(node);
+    this.getCards();
+    console.log("montado");
+  }
+  componentDidUpdate() {
+    console.log("actualizado");
   }
   getImage = async node => {
     let img = new Image();
     await htmlToImage
       .toPng(node)
       .then(function(dataUrl) {
-      
-
         img.src = dataUrl;
         //node.appendChild(img);
       })
       .catch(function(error) {
         console.error("oops, something went wrong!", error);
       });
-  
 
     this.divideToCanvas(node, img);
 
@@ -58,7 +61,7 @@ class Content extends React.Component {
     for (let i = 0; i < row; i++) {
       for (let j = 0; j < column; j++) {
         const newCanvas = document.createElement("canvas");
-        newCanvas.setAttribute('key', `${i}${j}`);
+
         newCanvas.width = widthCanvas;
         newCanvas.height = heightCanvas;
         const newCtx = newCanvas.getContext("2d");
@@ -93,10 +96,11 @@ class Content extends React.Component {
     let cards = [];
 
     for (let index = 0; index < 10; index++) {
-      cards.push(
+      cards[index] = (
         <div
           className="container-card"
           key={`${index}`}
+          /* onClick={() => this.handleClick(index)} */
           onClick={this.handleClick}
         >
           <div className="card">
@@ -117,27 +121,25 @@ class Content extends React.Component {
         </div>
       );
     }
+
     return cards;
   };
   handleClick = evt => {
     if (evt.currentTarget.querySelector(".card").style.display === "none") {
-      const canvas = evt.currentTarget.getElementsByTagName("canvas");
-
-      for (const canvasSingle of canvas) {
-        console.log(canvasSingle);
-        evt.currentTarget.removeChild(canvasSingle);
-        ReactDOM.unmountComponentAtNode(canvasSingle);
+      const canvas = evt.currentTarget.querySelectorAll("canvas");
+      console.log('event');
+      
+      for (let index = 0; index < canvas.length; index++) {
+        canvas[index].remove();
       }
+
       evt.currentTarget.querySelector(".card").style.display = "flex";
       evt.currentTarget.querySelector(".card").style.animation =
-        "card-appear 1s forwards";
+        "card-appear 3s forwards";
     } else {
       this.getImage(evt.currentTarget);
     }
-    // evt.currentTarget.querySelector('.card').style.animation  = 'card-disappear 1s forwards';
-    //evt.currentTarget.querySelector('.card').style.display  = 'none';
   };
-
   render() {
     return <div className="content">{this.getCards()}</div>;
   }
