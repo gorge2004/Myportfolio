@@ -1,10 +1,10 @@
-export const es = {
+export const ES = {
               HERO:{title: "Portafolio"}
               ,
 
             };
 
-export const en = {
+export const EN = {
              HERO:{ title: "portfolio"}
              ,
             };

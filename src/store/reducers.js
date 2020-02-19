@@ -1,18 +1,21 @@
-import {es, en, lang_en, lang_es, GET_HERO} from './actions.js';
+import {ES, EN, LANG_EN, LANG_ES, GET_HERO, APPEAR} from './actions.js';
 
 
 const initialState = {
- ...en,
+ ...EN,
+
 };
 
 export function todoApp(state = initialState, action){
   switch (action.type) {
-    case lang_en:
-        return { ...en}
+    case LANG_EN:
+        return { ...EN}
       break;
-      case lang_es:
-          return {...es};
+      case LANG_ES:
+          return {...ES};
         break;
+    case APPEAR:
+      return {...state, Appear: {show: !state.Appear.show} };
     default:
       return state;
 

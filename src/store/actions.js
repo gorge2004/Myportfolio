@@ -2,17 +2,20 @@
 // ******* CONST **************
 // ****************************
 export const GET_HERO = 'GET_HERO';
-export const lang_es = "ES";
-export const lang_en = "EN";
-export const es = {
+export const LANG_ES = "ES";
+export const LANG_EN = "EN";
+export const APPEAR = 'START_DECIMATION'
+export const ES = {
               HERO:{title: "Portafolio"}
               ,
+              Appear: {show: true},
 
             };
 
-export const en = {
+export const EN = {
              HERO:{ title: "portfolio"}
              ,
+             Appear: {show: true},
             };
 
 
@@ -23,14 +26,14 @@ export const en = {
  export function getEnglish(){
 
    return {
-             type: lang_en,
-             txt: en
+             type: LANG_EN,
+             txt: EN
            };
  };
 
  export function getSpanish(){
    return {
-             type: lang_es,
-             txt: es
+             type: LANG_ES,
+             txt: ES
            };
  };

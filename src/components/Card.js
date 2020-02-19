@@ -5,6 +5,19 @@ import htmlToImage from "html-to-image";
 export default class Card extends React.Component {
   constructor(props) {
     super(props);
+    this.myRef = React.createRef();
+  }
+  componentDidUpdate() {
+    /* if (this.props.show === false) {
+      this.getImage(this.myRef);
+    }else{
+      console.log('no');
+      
+    } */
+    setTimeout(()=>this.handleClick(),1000);
+   
+    console.log('update card');
+    
   }
   getImage = async node => {
     let img = new Image();
@@ -159,26 +172,32 @@ export default class Card extends React.Component {
     }
   };
   handleClick = evt => {
-    if (evt.currentTarget.querySelector(".card").style.display === "none") {
-      const canvas = evt.currentTarget.querySelectorAll("canvas");
-      console.log("event");
+    if (this.myRef.current.querySelector(".card").style.display === "none") {
+      const canvas = this.myRef.current.querySelectorAll("canvas");
+      console.log("referencia");
 
       for (let index = 0; index < canvas.length; index++) {
         canvas[index].remove();
       }
 
-      evt.currentTarget.querySelector(".card").style.display = "flex";
-      evt.currentTarget.querySelector(".card").style.animation =
+      this.myRef.current.querySelector(".card").style.display = "flex";
+      this.myRef.current.querySelector(".card").style.animation =
         "card-appear 3s forwards";
     } else {
-      this.getImage(evt.currentTarget);
+      this.getImage(this.myRef.current);
     }
   };
+  componentDidMount(){
+    console.log(this.myRef.current.querySelector(".card"));
+  }
   render() {
+    
+
     return (
       <div
         className="container-card"
         /* onClick={() => this.handleClick(index)} */
+        ref={this.myRef}
         onClick={this.handleClick}
       >
         <div className="card">
@@ -188,9 +207,7 @@ export default class Card extends React.Component {
             <h5>{this.props.Duration}</h5>
           </section>
           <section className="card-description">
-            <p>
-              {this.props.Description}
-            </p>
+            <p>{this.props.Description}</p>
           </section>
         </div>
       </div>
