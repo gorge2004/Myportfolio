@@ -55,7 +55,11 @@ export default class Card extends React.Component {
   refreshCanvas = (context, imgData, x0, y0, whichCanvas, scroll) => {
     if (whichCanvas === 0 && scroll) {
 
-      window.scroll(0, (this.myRef.current.offsetTop));
+      window.scroll({
+        top: this.myRef.current.offsetTop,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
     context.putImageData(imgData, x0, y0);
   };
