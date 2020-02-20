@@ -6,7 +6,7 @@ class Hero extends React.Component{
   constructor(props) {
     super(props)
     console.log("properties",props.title);
-      let h1Texts, textMid, textEnd;
+      /* let h1Texts, textMid, textEnd; */
       window.addEventListener('resize', this.fragmentingTitle)
   }
 

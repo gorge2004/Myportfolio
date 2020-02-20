@@ -14,10 +14,11 @@ export default class Card extends React.Component {
       console.log('no');
       
     } */
-    setTimeout(()=>this.handleClick(),10);
-   
-    console.log('update card');
-    
+    setTimeout(() => {
+      this.handleClick();
+    }, 10);
+
+    console.log("update card");
   }
   getImage = async node => {
     let img = new Image();
@@ -31,20 +32,20 @@ export default class Card extends React.Component {
         console.error("oops, something went wrong!", error);
       });
 
-    this.divideToCanvas(node, img );
+    this.divideToCanvas(node, img);
 
     node.querySelector(".card").style.animation = "card-disappear 1s forwards";
     node.querySelector(".card").style.display = "none";
     this.startTheDecimation(node);
   };
- 
- 
+
   getPixels = (context, cnvas) => {
     const width = cnvas.width;
     const height = cnvas.height;
     const imgData = context.getImageData(0, 0, width, height);
     let length = imgData.data.length;
     const that = this;
+
     for (let i = 0; i < length; i += 4) {
       setTimeout(function() {
         imgData.data[i + 3] = 0;
@@ -54,6 +55,10 @@ export default class Card extends React.Component {
   };
   refreshCanvas = (context, imgData, x0, y0) => {
     context.putImageData(imgData, x0, y0);
+    window.scroll(
+      this.myRef.current.getBoundingClientRect().x,
+      this.myRef.current.getBoundingClientRect().y
+    );
   };
   divideToCanvas = (container, imag, row = 10, column = 10) => {
     const { width, height } = imag;
@@ -98,38 +103,32 @@ export default class Card extends React.Component {
     }
   };
   handleClick = evt => {
-    setTimeout(()=>{ if (this.myRef.current.querySelector(".card").style.display === "none") {
-      this.showCard();
-    } else {
-      this.getImage(this.myRef.current);
-    }},0);
-   
-  }
+    console.log("referencia", this.myRef.current.getBoundingClientRect());
+    setTimeout(() => {
+      if (this.myRef.current.querySelector(".card").style.display === "none") {
+        this.showCard();
+      } else {
+        this.getImage(this.myRef.current);
+      }
+    });
+  };
   showCard = () => {
     const canvas = this.myRef.current.querySelectorAll("canvas");
-      console.log("referencia");
 
-      for (let index = 0; index < canvas.length; index++) {
-        canvas[index].remove();
-      }
+    for (let index = 0; index < canvas.length; index++) {
+      canvas[index].remove();
+    }
 
-      this.myRef.current.querySelector(".card").style.display = "flex";
-      this.myRef.current.querySelector(".card").style.animation =
-        "card-appear 3s forwards";
-  }
-  componentDidMount(){
-    console.log(this.myRef.current.querySelector(".card"));
+    this.myRef.current.querySelector(".card").style.display = "flex";
+    this.myRef.current.querySelector(".card").style.animation =
+      "card-appear 3s forwards";
+  };
+  componentDidMount() {
+    /*  console.log(this.myRef.current.querySelector(".card")); */
   }
   render() {
-    
-
     return (
-      <div
-        className="container-card"
-       
-        ref={this.myRef}
-       
-      >
+      <div className="container-card" ref={this.myRef}>
         <div className="card">
           <section className="card-title">
             <h2>{this.props.Title}</h2>
