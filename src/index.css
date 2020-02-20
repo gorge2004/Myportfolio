@@ -207,3 +207,20 @@ body {
     font-size: 12px;
   }
 }
+@media (max-width: 320px)  {
+  body {
+    background-color: rgb(9, 250, 150);
+  }
+  .hero .h1-hero {
+    font-size: 28px;
+  }
+  .card-title h2 {
+    font-size: 20px;
+  }
+  .card-title h5 {
+    font-size: 18px;
+  }
+  .card-description {
+    font-size: 12px;
+  }
+}
