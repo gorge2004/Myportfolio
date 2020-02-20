@@ -25,14 +25,13 @@ class Content extends React.Component {
             ...cards[indexs[index]],
             show: this.props.show
           });
-          
+          new Promise((resolve, reject) => {
+            setTimeout(()=>{  this.setState({ cards });resolve('good'); }, 1000*index);
+        })
+        
         
       }
-      setTimeout(() => {
-        console.log("ti");
-
-        this.setState({ cards });
-      }, 10 );
+      
     }
 /*     console.log("actualizado", this.props, prevProps, prevState); */
   }

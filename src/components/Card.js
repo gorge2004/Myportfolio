@@ -6,14 +6,12 @@ export default class Card extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
+
   }
   componentDidUpdate() {
-    /* if (this.props.show === false) {
-      this.getImage(this.myRef);
-    }else{
-      console.log('no');
-      
-    } */
+ 
+   
+
     setTimeout(() => {
       this.handleClick();
     }, 10);
@@ -39,7 +37,7 @@ export default class Card extends React.Component {
     this.startTheDecimation(node);
   };
 
-  getPixels = (context, cnvas) => {
+  getPixels = (context, cnvas, scroll) => {
     const width = cnvas.width;
     const height = cnvas.height;
     const imgData = context.getImageData(0, 0, width, height);
@@ -47,20 +45,21 @@ export default class Card extends React.Component {
     const that = this;
 
     for (let i = 0; i < length; i += 4) {
-      setTimeout(function() {
+      setTimeout(() => {
         imgData.data[i + 3] = 0;
-        that.refreshCanvas(context, imgData, 0, 0);
-      }, 400 * Math.random());
+       
+        that.refreshCanvas(context, imgData, 0, 0, i, scroll);
+      }, 100 * Math.random());
     }
   };
-  refreshCanvas = (context, imgData, x0, y0) => {
+  refreshCanvas = (context, imgData, x0, y0, whichCanvas, scroll) => {
+    if (whichCanvas === 0 && scroll) {
+
+      window.scroll(0, (this.myRef.current.offsetTop));
+    }
     context.putImageData(imgData, x0, y0);
-    window.scroll(
-      this.myRef.current.getBoundingClientRect().x,
-      this.myRef.current.getBoundingClientRect().y
-    );
   };
-  divideToCanvas = (container, imag, row = 10, column = 10) => {
+  divideToCanvas = (container, imag, row = 1, column = 10) => {
     const { width, height } = imag;
     const { clientHeight, clientWidth } = container;
     const widthCanvas = clientWidth / column;
@@ -90,27 +89,27 @@ export default class Card extends React.Component {
       }
     }
   };
-  startTheDecimation = (container, row = 10, column = 10) => {
+  startTheDecimation = (container, row = 1, column = 10) => {
     const canvas = container.getElementsByTagName("canvas");
-
+    
     for (let i = 0; i < column; i++) {
       for (let j = 0; j < row; j++) {
         const index = j * row + i;
         setTimeout(() => {
-          this.getPixels(canvas[index].getContext("2d"), canvas[index], 500);
+          this.getPixels(canvas[index].getContext("2d"), canvas[index],i===0 && j === 0);
         }, 5);
       }
     }
   };
   handleClick = evt => {
-    console.log("referencia", this.myRef.current.getBoundingClientRect());
+  
     setTimeout(() => {
       if (this.myRef.current.querySelector(".card").style.display === "none") {
         this.showCard();
       } else {
         this.getImage(this.myRef.current);
       }
-    });
+    }, 0);
   };
   showCard = () => {
     const canvas = this.myRef.current.querySelectorAll("canvas");
