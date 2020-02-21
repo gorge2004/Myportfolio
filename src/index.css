@@ -157,6 +157,11 @@ body {
   .hero .h1-hero {
     font-size: 65px;
   }
+  .content {
+   
+    grid-template: 400px / 1fr;
+  
+}
 }
 
 /* 
@@ -168,6 +173,11 @@ body {
   body {
     background-color: rgb(235, 26, 200);
   }
+  .content {
+   
+    grid-template: 400px / 1fr;
+  
+}
 }
 
 /* 
@@ -194,6 +204,11 @@ body {
   body {
     background-color: rgb(85, 250, 9);
   }
+  .content {
+   
+    grid-template: 400px / 1fr;
+  
+}
   .hero .h1-hero {
     font-size: 28px;
   }
@@ -211,6 +226,10 @@ body {
   body {
     background-color: rgb(9, 250, 150);
   }
+  .hero {
+   
+    min-width: 260px;
+}
   .hero .h1-hero {
     font-size: 28px;
   }

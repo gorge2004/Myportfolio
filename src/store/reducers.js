@@ -1,4 +1,4 @@
-import {ES, EN, LANG_EN, LANG_ES, GET_HERO, APPEAR} from './actions.js';
+import {ES, EN, LANG_EN, LANG_ES,  APPEAR} from './actions.js';
 
 
 const initialState = {
@@ -9,12 +9,14 @@ const initialState = {
 export function todoApp(state = initialState, action){
   switch (action.type) {
     case LANG_EN:
-        return { ...EN}
+        return { ...EN, Appear: {show: state.Appear.show} }
       break;
       case LANG_ES:
-          return {...ES};
+          return {...ES, Appear: {show: state.Appear.show} };
         break;
     case APPEAR:
+      console.log('arranco');
+      
       return {...state, Appear: {show: !state.Appear.show} };
     default:
       return state;

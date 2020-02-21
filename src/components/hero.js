@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 class Hero extends React.Component{
   constructor(props) {
     super(props)
-    console.log("properties",props.title);
+  
       /* let h1Texts, textMid, textEnd; */
       window.addEventListener('resize', this.fragmentingTitle)
   }
@@ -33,7 +33,7 @@ class Hero extends React.Component{
     const LEFT_TO_MID_SECTION = this.getRound(WIDTH_BY_SECTION * -1)+ this.getUnit();
     const LEFT_TO_END_SECTION = this.getRound(WIDTH_BY_SECTION * -2)+ this.getUnit();
     const MIN_HEIGHT = this.h1Texts[0].offsetHeight;
-    console.log("height",MIN_HEIGHT);
+   
 
 
      this.h1Texts.forEach( h1 => this.setWidth( h1,  WIDTH_BY_SECTION+ this.getUnit() ));
@@ -64,7 +64,7 @@ class Hero extends React.Component{
   }
 
   render(){
-    console.log("render");
+    
       return (
         <div className='hero'onClick={ () => this.props.dispatch({type: 'ES'}) } >
             <h1  className="h1-hero"  onClick={(evt) => console.log(evt.target.width) }>

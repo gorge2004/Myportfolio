@@ -6,62 +6,68 @@ import Card from "./Card";
 class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cards: [], indexs:[] };
+    this.state = { cards: [], indexs: [] };
   }
   componentDidMount() {
     // this.getImage(node);
+    
+    
     this.getCards();
-   /*  console.log("montado"); */
+    this.randomDissapear();
+    /*  console.log("montado"); */
   }
   componentDidUpdate(prevProps, prevState) {
-  
     if (this.props.show !== prevProps.show) {
-      const {cards, indexs} = this.state;
-     
-      for (let index = 0; index < indexs.length; index++) {
-     
-          cards[indexs[index]] = React.cloneElement(
-            cards[indexs[index]], {
-            ...cards[indexs[index]],
-            show: this.props.show
-          });
-          new Promise((resolve, reject) => {
-            setTimeout(()=>{  this.setState({ cards });resolve('good'); }, 1000*index);
-        })
-        
-        
-      }
+      console.log('update dispatch');
       
-    }
-/*     console.log("actualizado", this.props, prevProps, prevState); */
-  }
+      const { cards, indexs } = this.state;
 
-  getCards = () => {
-    let cards = [];
+      for (let index = 0; index < indexs.length; index++) {
+        cards[indexs[index]] = React.cloneElement(cards[indexs[index]], {
+          ...cards[indexs[index]],
+          show: this.props.show
+        });
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            
+            resolve("good");
+          }, 1000 * index);
+        }).then(() => {this.setState({ cards })});
+      }
+    }
+    else if (this.props !== prevProps) {
+      this.getCards();
+    }
+        
+  }
+  randomDissapear  = () =>{
     const auxIndex = [];
-    for (let index = 0; index < 10; index++) {
-      if(Math.random() >= 0.50){
+    for (let index = 0; index < this.props.Jobs.length; index++) {
+      if (Math.random() >= 0.5) {
         auxIndex.push(index);
       }
-        cards[index] = (
-          <Card
-            key={index+1}
-            Title="title of jobs"
-            Location="ubication"
-            Duration="duration"
-            Description="Lorem consectetur aliquip quis est excepteur duis. Est cupidatat
-          irure eu pariatur minim voluptate. In reprehenderit cillum esse
-          laborum nostrud eiusmod do enim ex. Nulla velit ex nulla ea
-          eiusmod laboris consequat cupidatat anim ex nisi esse."
-          />
-        );
-    
+       }
+    this.setState({ indexs: auxIndex });
+  }
+  getCards = () => {
+    let cards = [];
+    for (let index = 0; index < this.props.Jobs.length; index++) {
+  
+      cards[index] = (
+        <Card
+          key={index + 1}
+          Title={this.props.Jobs[index].title}
+          Location={this.props.Jobs[index].location}
+          Duration={this.props.Jobs[index].duration}
+          Description={this.props.Jobs[index].description}
+        />
+      );
     }
-    this.setState({ cards: cards, indexs: auxIndex });
+    this.setState({ cards: cards, });
   };
 
   render() {
-    console.log(this.state.indexs);
+ 
     
     return (
       <div
@@ -75,7 +81,7 @@ class Content extends React.Component {
 }
 
 const mapStateToPros = state => {
-  return { ...state.Appear };
+  return { ...state.Appear, ...state.content };
 };
 const mapDispatchToProps = dispatch => {
   return { dispatch: action => dispatch(action) };

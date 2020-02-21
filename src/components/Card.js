@@ -6,17 +6,16 @@ export default class Card extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
-
   }
   componentDidUpdate() {
- 
-   
+    console.log();
+    if (this.props.show !== undefined) {
+      setTimeout(() => {
+        this.handleClick();
+      }, 10);
+    }
 
-    setTimeout(() => {
-      this.handleClick();
-    }, 10);
-
-    console.log("update card");
+    
   }
   getImage = async node => {
     let img = new Image();
@@ -30,11 +29,11 @@ export default class Card extends React.Component {
         console.error("oops, something went wrong!", error);
       });
 
-    this.divideToCanvas(node, img);
+    this.divideToCanvas(node, img, 1);
 
     node.querySelector(".card").style.animation = "card-disappear 1s forwards";
     node.querySelector(".card").style.display = "none";
-    this.startTheDecimation(node);
+    this.startTheDecimation(node, 1);
   };
 
   getPixels = (context, cnvas, scroll) => {
@@ -47,23 +46,22 @@ export default class Card extends React.Component {
     for (let i = 0; i < length; i += 4) {
       setTimeout(() => {
         imgData.data[i + 3] = 0;
-       
+
         that.refreshCanvas(context, imgData, 0, 0, i, scroll);
       }, 100 * Math.random());
     }
   };
   refreshCanvas = (context, imgData, x0, y0, whichCanvas, scroll) => {
     if (whichCanvas === 0 && scroll) {
-
       window.scroll({
         top: this.myRef.current.offsetTop,
         left: 0,
-        behavior: 'smooth'
+        behavior: "smooth"
       });
     }
     context.putImageData(imgData, x0, y0);
   };
-  divideToCanvas = (container, imag, row = 1, column = 10) => {
+  divideToCanvas = (container, imag, row = 10, column = 10) => {
     const { width, height } = imag;
     const { clientHeight, clientWidth } = container;
     const widthCanvas = clientWidth / column;
@@ -93,20 +91,23 @@ export default class Card extends React.Component {
       }
     }
   };
-  startTheDecimation = (container, row = 1, column = 10) => {
+  startTheDecimation = (container, row = 10, column = 10) => {
     const canvas = container.getElementsByTagName("canvas");
-    
+
     for (let i = 0; i < column; i++) {
       for (let j = 0; j < row; j++) {
         const index = j * row + i;
         setTimeout(() => {
-          this.getPixels(canvas[index].getContext("2d"), canvas[index],i===0 && j === 0);
+          this.getPixels(
+            canvas[index].getContext("2d"),
+            canvas[index],
+            i === 0 && j === 0
+          );
         }, 5);
       }
     }
   };
   handleClick = evt => {
-  
     setTimeout(() => {
       if (this.myRef.current.querySelector(".card").style.display === "none") {
         this.showCard();
