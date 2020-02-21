@@ -18,6 +18,7 @@ export function todoApp(state = initialState, action){
       console.log('arranco');
       
       return {...state, Appear: {show: !state.Appear.show} };
+      break;
     default:
       return state;
 
