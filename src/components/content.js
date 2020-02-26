@@ -6,53 +6,78 @@ import Card from "./Card";
 class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cards: [], indexs: [] };
+
+    this.state = {
+      cards: [],
+      indexs: [],
+      classImg: "",
+      handleClick: this.handleClick
+    };
   }
+  handleClick = () => {
+    this.props.dispatch({ type: "START_DECIMATION" });
+  };
   componentDidMount() {
     // this.getImage(node);
-    
-    
+
     this.getCards();
     this.randomDissapear();
+
     /*  console.log("montado"); */
   }
   componentDidUpdate(prevProps, prevState) {
     if (this.props.show !== prevProps.show) {
-      console.log('update dispatch');
-      
-      const { cards, indexs } = this.state;
-
-      for (let index = 0; index < indexs.length; index++) {
-        cards[indexs[index]] = React.cloneElement(cards[indexs[index]], {
-          ...cards[indexs[index]],
-          show: this.props.show
-        });
-        new Promise((resolve, reject) => {
-          setTimeout(() => {
-            
-            resolve("good");
-          }, 1000 * index);
-        }).then(() => {this.setState({ cards })});
+      if (this.props.show) {
+        this.setState({ classImg: "img-resurrect", handleClick: () => {} });
+        this.blockButtonAwhile(5000);
+      } else {
+        this.setState({ classImg: "img-decimation", handleClick: () => {} });
+        this.blockButtonAwhile(10000);
       }
-    }
-    else if (this.props !== prevProps) {
+        setTimeout(()=> this.updateToCard(), 3000);
+      
+    } else if (this.props !== prevProps) {
       this.getCards();
     }
-        
   }
-  randomDissapear  = () =>{
+  blockButtonAwhile = time => {
+    setTimeout(
+      () => this.setState({ classImg: "", handleClick: this.handleClick }),
+      time
+    );
+  };
+  updateToCard = () => {
+    const { cards, indexs } = this.state;
+
+    for (let index = 0; index < indexs.length; index++) {
+      cards[indexs[index]] = React.cloneElement(cards[indexs[index]], {
+        show: this.props.show,
+        ...cards[indexs[index]]
+      });
+
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(cards);
+        }, 1000 * index);
+      }).then(arrayCard => {
+        this.setState({ cards: arrayCard });
+      });
+    }
+  };
+  randomDissapear = () => {
     const auxIndex = [];
+
     for (let index = 0; index < this.props.Jobs.length; index++) {
       if (Math.random() >= 0.5) {
         auxIndex.push(index);
       }
-       }
+    }
+
     this.setState({ indexs: auxIndex });
-  }
+  };
   getCards = () => {
     let cards = [];
     for (let index = 0; index < this.props.Jobs.length; index++) {
-  
       cards[index] = (
         <Card
           key={index + 1}
@@ -63,19 +88,18 @@ class Content extends React.Component {
         />
       );
     }
-    this.setState({ cards: cards, });
+    this.setState({ cards: cards });
   };
 
   render() {
- 
-    
     return (
-      <div
-        className="content"
-        onClick={() => this.props.dispatch({ type: "START_DECIMATION" })}
-      >
-        {this.state.cards}
-      </div>
+      <React.Fragment>
+        <div className="content">{this.state.cards}</div>
+        <div
+          className={"button-float " + this.state.classImg}
+          onClick={this.state.handleClick}
+        />
+      </React.Fragment>
     );
   }
 }

@@ -69,6 +69,7 @@ body {
   display: grid;
   grid-template: 400px / 1fr 1fr;
   grid-auto-rows: 400px;
+  position: relative;
 }
 .container-card {
   justify-content: center;
@@ -100,6 +101,39 @@ body {
   font-style: italic;
   font-weight: lighter;
 }
+.button-float {
+
+  border: 0;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  z-index: 22;
+  background: url('./assets/images/thanos/thanos_idle.png');
+  will-change: background-position;
+
+  
+}
+.img-decimation{
+  background: url('./assets/images/thanos/thanos_snap.png');
+  background-position: 0px;
+  animation: demitation 3s steps(48) forwards;
+ 
+}
+.img-resurrect{
+  background: url('./assets/images/thanos/thanos_time.png');
+  background-position: 0px;
+  animation: demitation 3s steps(48) forwards;
+  
+}
+@keyframes demitation{
+  to{
+    background-position-x: 3840px ;
+  }
+}
+
 @keyframes card-disappear {
   from {
   }
@@ -158,10 +192,8 @@ body {
     font-size: 65px;
   }
   .content {
-   
     grid-template: 400px / 1fr;
-  
-}
+  }
 }
 
 /* 
@@ -174,10 +206,8 @@ body {
     background-color: rgb(235, 26, 200);
   }
   .content {
-   
     grid-template: 400px / 1fr;
-  
-}
+  }
 }
 
 /* 
@@ -205,10 +235,8 @@ body {
     background-color: rgb(85, 250, 9);
   }
   .content {
-   
     grid-template: 400px / 1fr;
-  
-}
+  }
   .hero .h1-hero {
     font-size: 28px;
   }
@@ -222,14 +250,13 @@ body {
     font-size: 12px;
   }
 }
-@media (max-width: 320px)  {
+@media (max-width: 320px) {
   body {
     background-color: rgb(9, 250, 150);
   }
   .hero {
-   
     min-width: 260px;
-}
+  }
   .hero .h1-hero {
     font-size: 28px;
   }

@@ -8,13 +8,14 @@ export default class Card extends React.Component {
     this.myRef = React.createRef();
   }
   componentDidUpdate() {
-    console.log();
+   
     if (this.props.show !== undefined) {
       setTimeout(() => {
         this.handleClick();
       }, 10);
     }
   }
+
   getImage = async node => {
     let img = new Image();
     await htmlToImage
@@ -119,6 +120,8 @@ export default class Card extends React.Component {
       "card-appear 3s forwards";
   };
   componentDidMount() {
+ 
+
     /*  console.log(this.myRef.current.querySelector(".card")); */
   }
   render() {
