@@ -14,9 +14,7 @@ export function todoApp(state = initialState, action){
       case LANG_ES:
           return {...ES, Appear: {show: state.Appear.show} };
         break;
-    case APPEAR:
-      console.log('arranco');
-      
+    case APPEAR:      
       return {...state, Appear: {show: !state.Appear.show} };
       break;
     default:

@@ -14,8 +14,6 @@ export default class Card extends React.Component {
         this.handleClick();
       }, 10);
     }
-
-    
   }
   getImage = async node => {
     let img = new Image();
@@ -28,12 +26,13 @@ export default class Card extends React.Component {
       .catch(function(error) {
         console.error("oops, something went wrong!", error);
       });
-
-    this.divideToCanvas(node, img, 1);
+    const row = 25;
+    const column = 1;
+    this.divideToCanvas(node, img, row, column);
 
     node.querySelector(".card").style.animation = "card-disappear 1s forwards";
     node.querySelector(".card").style.display = "none";
-    this.startTheDecimation(node, 1);
+    this.startTheDecimation(node, row, column);
   };
 
   getPixels = (context, cnvas, scroll) => {
@@ -48,7 +47,7 @@ export default class Card extends React.Component {
         imgData.data[i + 3] = 0;
 
         that.refreshCanvas(context, imgData, 0, 0, i, scroll);
-      }, 100 * Math.random());
+      }, 200 * Math.random());
     }
   };
   refreshCanvas = (context, imgData, x0, y0, whichCanvas, scroll) => {
@@ -93,18 +92,10 @@ export default class Card extends React.Component {
   };
   startTheDecimation = (container, row = 10, column = 10) => {
     const canvas = container.getElementsByTagName("canvas");
-
-    for (let i = 0; i < column; i++) {
-      for (let j = 0; j < row; j++) {
-        const index = j * row + i;
-        setTimeout(() => {
-          this.getPixels(
-            canvas[index].getContext("2d"),
-            canvas[index],
-            i === 0 && j === 0
-          );
-        }, 5);
-      }
+    let index = 0;
+    for (const canva of canvas) {
+      this.getPixels(canva.getContext("2d"), canva, index === 0);
+      index++;
     }
   };
   handleClick = evt => {
