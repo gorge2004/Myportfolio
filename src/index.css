@@ -108,7 +108,7 @@ body {
   height: 80px;
   overflow: hidden;
   position: fixed;
-  bottom: 80px;
+  bottom: 40px;
   right: 80px;
   z-index: 22;
   background: url('./assets/images/thanos/thanos_idle.png');

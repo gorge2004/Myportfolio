@@ -8,7 +8,6 @@ export default class Card extends React.Component {
     this.myRef = React.createRef();
   }
   componentDidUpdate() {
-   
     if (this.props.show !== undefined) {
       setTimeout(() => {
         this.handleClick();
@@ -27,7 +26,7 @@ export default class Card extends React.Component {
       .catch(function(error) {
         console.error("oops, something went wrong!", error);
       });
-    const row = 25;
+    const row = 20;
     const column = 1;
     this.divideToCanvas(node, img, row, column);
 
@@ -120,8 +119,6 @@ export default class Card extends React.Component {
       "card-appear 3s forwards";
   };
   componentDidMount() {
- 
-
     /*  console.log(this.myRef.current.querySelector(".card")); */
   }
   render() {
