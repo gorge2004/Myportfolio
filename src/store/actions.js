@@ -88,7 +88,20 @@ export const ES = {
           " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
           "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse."
       }
-    ]
+    ],
+    skill: { description: ` ES Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, `,
+    json_skill: ['javascript', 'php', 
+                'java',  'python', 
+                'css', 'redux', 'react',
+                'cakephp', 'laravel', 
+                'MVC','linux mint', 
+                'c#', 'Node Js', 'DB']
+                },
   }
 };
 
@@ -149,7 +162,20 @@ export const EN = {
           "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse."
       }
     ]
-  }
+  },
+  skill: { description: ` EN Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, `,
+    json_skill: ['javascript', 'php', 
+                'java',  'python', 
+                'css', 'redux', 'react',
+                'cakephp', 'laravel', 
+                'MVC','linux mint', 
+                'c#', 'Node Js', 'DB']
+                },
 };
 
 // ***************************************
