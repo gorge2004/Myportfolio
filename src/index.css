@@ -81,7 +81,7 @@ body {
 .card {
   display: flex;
   border: 0.5px solid rgba(0, 0, 0, 0.5);
-  background: #8d99ae;
+  background: #fefefe;
   box-shadow: 1px 1px rgba(0, 0, 0, 0.3);
   justify-self: center;
   width: 90%;
@@ -90,7 +90,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 10px 20px;
-  color: #fff;
+  color: #000;
   border-radius: 10px;
 }
 .card-title h2 {
@@ -152,7 +152,7 @@ body {
     color: green;
   }
   to {
-    color: white;
+    color: black;
     opacity: 1;
   }
 }
