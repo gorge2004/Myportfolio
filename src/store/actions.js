@@ -1,3 +1,31 @@
+import axios from "axios";
+const ENDPOINT = "http://localhost:3002/";
+const JOB = "jobs/";
+
+const EN_LANG = 'EN/';
+const ES_LANG = 'ES/';
+
+axios
+  .get(`${ENDPOINT}${JOB}${EN_LANG}`)
+  .then(Response => {
+    console.log(Response.data.res);
+    EN.Jobs = Response.data.res;
+  })
+  .catch(function(error) {
+    // handle error
+    console.log(error);
+  });
+axios
+  .get(`${ENDPOINT}${JOB}${ES_LANG}`)
+  .then(Response => {
+    console.log(Response.data.res);
+
+
+  })
+  .catch(function(error) {
+    // handle error
+    console.log(error);
+  });
 // ****************************
 // ******* CONST **************
 // ****************************
