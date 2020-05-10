@@ -102,7 +102,6 @@ body {
   font-weight: lighter;
 }
 .button-float {
-
   border: 0;
   width: 80px;
   height: 80px;
@@ -111,24 +110,20 @@ body {
   bottom: 40px;
   right: 80px;
   z-index: 22;
-  background: url('./assets/images/thanos/thanos_idle.png');
+  background: url("./assets/images/thanos/thanos_idle.png");
   will-change: background-position;
-
-  
 }
-.img-decimation{
-  background: url('./assets/images/thanos/thanos_snap.png');
+.img-decimation {
+  background: url("./assets/images/thanos/thanos_snap.png");
   background-position: 0px;
   animation: demitation 3s steps(48) forwards;
- 
 }
-.img-resurrect{
-  background: url('./assets/images/thanos/thanos_time.png');
+.img-resurrect {
+  background: url("./assets/images/thanos/thanos_time.png");
   background-position: 0px;
   animation: demitation 3s steps(48) forwards;
-  
 }
-.skill-container{
+.skill-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,7 +131,7 @@ body {
   flex-direction: column;
   background-color: #fefefe;
 }
-.skill-container p{
+.skill-container p {
   width: 80%;
   text-align: center;
   margin: auto 0;
@@ -146,9 +141,8 @@ body {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-
 }
-tag{
+tag {
   min-width: 40px;
   display: table-cell;
   height: 30px;
@@ -160,9 +154,45 @@ tag{
   padding: 0 10px;
 }
 
-@keyframes demitation{
-  to{
-    background-position-x: 3840px ;
+footer {
+  background-color: black;
+  color: #fff;
+  display: grid;
+  grid-template-rows: 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "text  social"
+    "text copyright";
+  height: 200px;
+}
+.text-footer {
+  grid-area: text;
+  text-align: center;
+  line-height: 2em;
+  display: flex;
+  align-items: center;
+}
+.socials {
+  display: flex;
+  grid-area: social;
+  justify-content: center;
+  align-items: center;
+}
+.socials > a {
+  margin-right: 25px;
+  font-size: 35px;
+  color: white;
+}
+.copyright {
+  grid-area: copyright;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+@keyframes demitation {
+  to {
+    background-position-x: 3840px;
   }
 }
 
