@@ -143,6 +143,9 @@ body {
 }
 .tag-container {
   margin-bottom: 20px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
 
 }
 tag{
