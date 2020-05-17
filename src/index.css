@@ -142,7 +142,7 @@ body {
   flex-flow: wrap;
   justify-content: center;
 }
-tag {
+.tag-container span {
   min-width: 40px;
     display: table-cell;
     min-height: 15px;

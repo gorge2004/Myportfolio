@@ -13,7 +13,7 @@ import { connect } from "react-redux";
           
             </p>
             <div className='tag-container'>
-                {this.props.json_skill.map( (skill,index) => <tag key= 'skill-'index >{skill}</tag> )}
+                {this.props.json_skill.map( (skill,index) => <span key={ 'index'+ index}>{skill} </span> )}
                 
             </div>
         </section>);
