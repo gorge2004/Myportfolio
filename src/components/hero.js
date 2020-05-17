@@ -66,7 +66,7 @@ class Hero extends React.Component{
   render(){
     
       return (
-        <div className='hero'onClick={ () => this.props.dispatch({type: 'ES'}) } >
+        <div className='hero' >
             <h1  className="h1-hero"  onClick={(evt) => console.log(evt.target.width) }>
             { this.props.title }
             </h1>

@@ -32,6 +32,8 @@ export const LANG_ES = "ES";
 export const LANG_EN = "EN";
 export const APPEAR = "START_DECIMATION";
 export const ES = {
+  HEADER:   {Options: [{title : 'Experiencia', id: '#'},{title: 'Habilidades', id: '#'}, {title:  'Pie de pagina', id: '#'}]},
+  
   HERO: { title: "Portafolio" },
   Appear: { show: true },
   content: {
@@ -127,6 +129,8 @@ export const ES = {
 };
 
 export const EN = {
+  HEADER: {Options: [{title : 'Experience', id: '#'},{title: 'Skill', id: '#'}, {title:  'Footer', id: '#'}]},
+
   HERO: { title: "portfolio" },
   Appear: { show: true },
 

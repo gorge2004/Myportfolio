@@ -8,11 +8,12 @@ const initialState = {
 export function todoApp(state = initialState, action) {
   switch (action.type) {
     case LANG_EN:
-      console.log('ingles');
+      console.log(EN);
       
       return { ...EN, Appear: { show: state.Appear.show } };
       break;
     case LANG_ES:
+      console.log(ES);
       
       return { ...ES, Appear: { show: state.Appear.show } };
       break;
