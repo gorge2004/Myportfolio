@@ -23,7 +23,7 @@ class Footer extends React.Component {
         <p >{ this.props.description}</p>
       </div>
         <div className="socials">
-  {this.props.socials.map( social => <a href={social.link} > <FontAwesomeIcon  icon={this.getIcon(social.type)} /> 
+  {this.props.socials.map( (social,index) => <a key={'link'+index} href={social.link} > <FontAwesomeIcon  icon={this.getIcon(social.type)} /> 
 </a>)}
         </div>
         <p className="copyright">Copyright © {new Date().getFullYear()} All rights reserved.</p>
