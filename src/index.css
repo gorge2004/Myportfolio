@@ -18,6 +18,11 @@ body {
   background-image: url("./assets/images/hero-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  animation-name:toOut;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+
 }
 
 .hero .h1-hero {
@@ -36,8 +41,19 @@ body {
 }
 
 @keyframes toCenter {
-  100% {
-    grid-gap: calc(0vw / 3);
+  from {
+    grid-gap: calc(90vw / 3);
+  }
+  to {
+    grid-gap: 0vw;
+  }
+}
+@keyframes toOut {
+  to {
+    grid-gap: calc(90vw / 3);
+  }
+  from {
+    grid-gap: 0vw;
   }
 }
 

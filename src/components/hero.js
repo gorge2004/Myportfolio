@@ -68,11 +68,11 @@ class Hero extends React.Component{
       return (
         <div className='hero'onClick={ () => this.props.dispatch({type: 'ES'}) } >
             <h1  className="h1-hero"  onClick={(evt) => console.log(evt.target.width) }>
-            { this.props.title }
+            { this.props.title}
             </h1>
               <h1 className="h1-hero">
                 <p className="aux-cut-letter-mid">
-                { this.props.title }
+                { this.props.title}
 
                 </p>
               </h1>
