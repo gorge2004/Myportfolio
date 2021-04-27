@@ -286,7 +286,7 @@ footer {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   body {
-    background-color: rgb(43, 71, 69);
+    /* background-color: rgb(43, 71, 69); */
     
   }
 }
@@ -298,7 +298,7 @@ footer {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   body {
-    background-color: rgb(51, 10, 49);
+   /*  background-color: rgb(51, 10, 49); */
   }
   .hero .h1-hero {
     font-size: 65px;
@@ -315,7 +315,7 @@ footer {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   body {
-    background-color: rgb(235, 26, 200);
+   /*  background-color: rgb(235, 26, 200); */
     font-size: 12px;
   }
   .content {
@@ -330,7 +330,7 @@ footer {
 
 @media (min-width: 481px) and (max-width: 767px) {
   body {
-    background-color: rgb(206, 194, 24);
+   /*  background-color: rgb(206, 194, 24); */
     font-size: 12px;
 
   }
@@ -347,7 +347,7 @@ footer {
 
 @media (min-width: 320px) and (max-width: 480px) {
   body {
-    background-color: rgb(85, 250, 9);
+    /* background-color: rgb(85, 250, 9); */
     font-size: 12px;
 
   }
@@ -369,7 +369,7 @@ footer {
 }
 @media (max-width: 320px) {
   body {
-    background-color: rgb(9, 250, 150);
+    /* background-color: rgb(9, 250, 150); */
     font-size: 10px;
 
   }
