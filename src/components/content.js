@@ -74,8 +74,13 @@ class Content extends React.Component {
         auxIndex.push(index);
       }
     }
+    if(auxIndex.length){
+      this.setState({ indexs: auxIndex });
 
-    this.setState({ indexs: auxIndex });
+    }else {
+      this.randomDissapear();
+    }
+
   };
   getCards = () => {
     let cards = [];
