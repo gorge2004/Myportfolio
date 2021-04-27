@@ -1,11 +1,11 @@
-import axios from "axios";
+/* import axios from "axios";
 const ENDPOINT = "http://localhost:3002/";
-const JOB = "jobs/";
+const JOB = "jobs/"; */
 
-const EN_LANG = "EN/";
-const ES_LANG = "ES/";
+/* const EN_LANG = "EN/";
+const ES_LANG = "ES/"; */
 
-axios
+/* axios
   .get(`${ENDPOINT}${JOB}${EN_LANG}`)
   .then((Response) => {
     console.log(Response.data.res);
@@ -23,7 +23,7 @@ axios
   .catch(function (error) {
     // handle error
     console.log(error);
-  });
+  }); */
 // ****************************
 // ******* CONST **************
 // ****************************
@@ -37,63 +37,58 @@ export const ES = {
   content: {
     Jobs: [
       {
-        title: "titulo del trabajo",
-        location: "Caba, argentina",
-        duration: "Enero-Marzo 2020",
+        title: "Analista de sistema (Pasante)-Desarrollador PHP",
+        location: "Maturin, Venezuela",
+        duration: "Ene. 2016 – Jul. 2017",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Reingeniería de software de sistema web PHP y MySQL."+
+          " Lenguaje  PHP para modificar funcionalidades ya existente y añadir las requeridas."
+          +" Utilizando Php 5.0, Mysql, BoostrapCss 3",
       },
       {
-        title: "titulo del trabajo",
-        location: "Caba, argentina",
-        duration: "Enero-Marzo 2020",
+        title: "Desarrollador web( Freelance)",
+        location: "Maturin, Venezuela",
+        duration: "May. 2017 – Jul. 2017",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Desarrollo de software, añadiendo nuevas funcionalidades al sistema. Desarrollado con CakePHP y PostgreSQL."
+          +" Utilizando cakephp 2.3, y materializeCss",
       },
       {
-        title: "titulo del trabajo",
-        location: "Caba, argentina",
-        duration: "Enero-Marzo 2020",
+        title: "Desarrollador web( Freelance)",
+        location: "MonkuApp, Peru ( Freelance)",
+        duration: "Ene. 2019 – Abr 2019",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Worked several web Sites."
+          +" Using distinct tecnologies as Koa(NodeJs), PUG, JavaScript, Jquery.",
       },
       {
-        title: "titulo del trabajo",
-        location: "Caba, argentina",
-        duration: "Enero-Marzo 2020",
+        title: "Desarrollador web( Freelance)",
+        location: "Bucares, Francia ( Freelance)",
+        duration: "Jun. 2019 - Jul. 2019",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Apoyo en el desarrollo de una Tienda prestaShop, and developin de un plugin para tienda realizada en  Wordpress.",
       },
       {
-        title: "titulo del trabajo",
-        location: "Caba, argentina",
-        duration: "Enero-Marzo 2020",
+        title: "Desarrollador Salesforce",
+        location: "Xappia, Argentina",
+        duration: "Enero. 2020- Nov. 2020",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Desarrollo con lenguaje Apex, distinto requerimientos en distintos projectos.",
+      },
+      {
+        title: "Desarrollador Web",
+        location: "Nectica, Argentina",
+        duration: "Nov. 2020- Presente",
+        description:
+          "Desarrollo  de distintos sistemas administrativos . Realizados con laravel. Modificacion de sitios ya existente con php y Javascript",
       },
     ],},
     skill: {
-      description: ` ES Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, `,
+      description: `Tengo alrededor de 2 años de experiencia en desarrollo web utilizando múltiples tecnologías enfocadas en el area, 
+      utilizando principalmente PHP, Javascript, Mysql. He utilizado tecnologías como laravel, cakePhp, React native, Mysql, Postgress,
+      KoaJs, BootstrapCSS, MaterializeCSS he tomado el cargo de desarrollador web a lo largo de mi carrera profesional. 
+      Durante la misma también he tenido contacto con librerias como ReactJs, VueJs, Redux, Leguajes como Java, C# y netcore porque me gusta ir aprendiendo la nuevas tecnologías y estar a la vanguardia de la industria de desarrollo . Me considero una persona altamente responsable y me gusta aprender distintas cosas que me ayuden a  ser un profesional integral que pueda aportar tanto a la organización para la cual trabaje como nutrir mi conocimiento. me gustan las tecnologías tanto de backend como de frontend, aprender y practicar distintos lenguajes de programación. 
+      Mis hobbies me gusta mucho el cine y la musica, tengo  interés por el mundo de la criptomonedas tanto el trading como las tecnologías usadas.`,
       json_skill: [
         "javascript",
         "php",
@@ -129,58 +124,53 @@ export const ES = {
 export const EN = {
   HERO: { title: "portfolio" },
   Appear: { show: true },
-
   content: {
     Jobs: [
       {
-        title: "Job Title",
-        location: "Caba, argentina",
-        duration: "January-March 2020",
+        title: "Analista de sistema (Intern)- PHP Developer",
+        location: "Maturin, Venezuela",
+        duration: "Jan. 2016 – Jul. 2017",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Reingeniería de software de sistema web PHP y MySQL."+
+          " Lenguaje  PHP para modificar funcionalidades ya existente y añadir las requeridas."
+          +" Utilizando Php 5.0, Mysql, BoostrapCss 3",
       },
       {
-        title: "Job Title",
-        location: "Caba, argentina",
-        duration: "January-March 2020",
+        title: "Web Developer( Freelance)",
+        location: "Maturin, Venezuela",
+        duration: "May. 2017 – Jul. 2017",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Desarrollo de software, añadiendo nuevas funcionalidades al sistema. Desarrollado con CakePHP y PostgreSQL."
+          +" Utilizando cakephp 2.3, y materializeCss",
       },
       {
-        title: "Job Title",
-        location: "Caba, argentina",
-        duration: "January-March 2020",
+        title: "Desarrollador web( Freelance)",
+        location: "MonkuApp, Peru ( Freelance)",
+        duration: "Jan. 2019 – Apr 2019",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Desarrollo en distintos sitios web."
+          +" Usando distintas tecnologías como Koa(NodeJs), PUG, JavaScript, Jquery.",
       },
       {
-        title: "Job Title",
-        location: "Caba, argentina",
-        duration: "January-March 2020",
+        title: "Desarrollador web( Freelance)",
+        location: "Bucares, Francia ( Freelance)",
+        duration: "Jun. 2019 - Jul. 2019",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Apoyo en el desarrollo de una Tienda prestaShop, y desarrollo de un plugin para tienda realizada en  Wordpress.",
       },
       {
-        title: "Job Title",
-        location: "Caba, argentina",
-        duration: "January-March 2020",
+        title: "Desarrollador Salesforce",
+        location: "Xappia, Argentina",
+        duration: "Jan. 2020- Nov. 2020",
         description:
-          "Lorem consectetur aliquip quis est excepteur duis." +
-          " Est cupidatat irure eu pariatur minim voluptate." +
-          " In reprehenderit cillum esse laborum nostrud eiusmod do enim ex. " +
-          "Nulla velit ex nulla ea eiusmod laboris consequat cupidatat anim ex nisi esse.",
+          "Desarrollo con lenguaje Apex, distinto requerimientos en distintos projectos.",
+      },
+      {
+        title: "Desarrollador Web",
+        location: "Nectica, Argentina",
+        duration: "Nov. 2020- Presente",
+        description:
+          "Desarrollo  de distintos sistemas administrativos . Realizados con laravel. Modificacion de sitios ya existente con php y Javascript",
       },
     ],
   },

@@ -9,10 +9,8 @@ class Footer extends React.Component {
     switch (type) {
       case 'linkedin':
         return faLinkedin ;
-        break;
       case 'github':
           return faGithub;
-          break;
       default:
         break;
     }

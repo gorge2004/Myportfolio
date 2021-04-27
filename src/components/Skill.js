@@ -4,7 +4,6 @@ import { connect } from "react-redux";
  class Skill  extends React.Component{
     
     render(){
-        console.log(this.props);
         
         return (
         <section className='skill-container'>

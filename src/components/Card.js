@@ -11,7 +11,7 @@ export default class Card extends React.Component {
     if (this.props.show !== undefined) {
       setTimeout(() => {
         this.handleClick();
-      }, 10);
+      }, 1);
     }
   }
 
