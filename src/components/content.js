@@ -16,19 +16,13 @@ class Content extends React.Component {
     };
   }
   handleClick = () => {
-/*     this.props.dispatch({ type: "START_DECIMATION" });
- */  };
+    this.props.dispatch({ type: "START_DECIMATION" });
+  };
   componentDidMount() {
     this.getCards();
     this.randomDissapear();
     
-    this.url = "http://streaming.tdiradio.com:8000/house.mp3";
-    this.audio = new Audio('../assets/images/thanos/Thanos_Snap.mp3');
-    this.audio.addEventListener("canplaythrough", event => {
-      /* the audio is now playable; play it if permissions allow */
-      console.log('play');
-      this.audio.play();
-    });
+  
     
     /* const audioStartDecimitation =  new Audio('../assets/images/thanos/Thanos_Snap.mp3');
     audioStartDecimitation.play(); */
